@@ -1,1 +1,9 @@
-<p>heat-exchanger works!</p>
+<div *ngIf="sensorData">
+  <h2>Dados do Sensor:</h2>
+  <p>Temperatura: {{ sensorData.temperature }}°C</p>
+  <p>Umidade: {{ sensorData.humidity }}%</p>
+  <p>Horário: {{ sensorData.timestamp }}</p>
+</div>
+<div *ngIf="!sensorData">
+  <p>Aguardando dados do sensor...</p>
+</div>
