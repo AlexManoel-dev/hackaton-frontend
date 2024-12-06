@@ -1,0 +1,45 @@
+.btn-container {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+
+  .btn {
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #3366ff;
+    border-radius: 7px;
+    transition: 250ms ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #3366ff;
+      color: #fff;
+    }
+  }
+
+  .btn-selected {
+    background-color: #3366ff;
+    color: #fff;
+  }
+}
+
+nb-layout-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chat-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+.chat-container.show-chat {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
