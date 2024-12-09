@@ -1,6 +1,6 @@
 <nb-card *ngIf="isChatOpen" class="chat-container">
   <nb-chat title="Suporte" (send)="sendMessage($event)">
-    <nb-chat-message 
+    <nb-chat-message class="chat-style"
       *ngFor="let msg of messages" 
       [message]="msg.text" 
       [reply]="msg.reply">

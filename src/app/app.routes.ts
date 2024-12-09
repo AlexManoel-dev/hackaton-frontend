@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { PumpSelectorComponent } from './pump-selector/pump-selector.component';
-import { PressureLossComponent } from './pressure-loss/pressure-loss.component';
+import {  PressureLossComponent } from './pressure-loss/pressure-loss.component';
 import { HeatExchangerComponent } from './heat-exchanger/heat-exchanger.component';
 
 export const routes: Routes = [

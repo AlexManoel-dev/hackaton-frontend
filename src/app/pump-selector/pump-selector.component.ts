@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NbButtonModule, NbCardModule, NbStepperModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbInputModule, NbStepperModule } from '@nebular/theme';
 
 @Component({
   selector: 'app-pump-selector',
   standalone: true,
-  imports: [NbStepperModule, NbCardModule, NbButtonModule],
+  imports: [NbCardModule, NbButtonModule, NbInputModule],
   templateUrl: './pump-selector.component.html',
-  styleUrl: './pump-selector.component.scss'
+  styleUrl: './pump-selector.component.scss',
 })
 export class PumpSelectorComponent {
 

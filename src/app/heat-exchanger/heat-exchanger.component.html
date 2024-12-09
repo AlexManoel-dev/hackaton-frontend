@@ -1,9 +1,96 @@
-<div *ngIf="sensorData">
-  <h2>Dados do Sensor:</h2>
-  <p>Temperatura: {{ sensorData.temperature }}°C</p>
-  <p>Umidade: {{ sensorData.humidity }}%</p>
-  <p>Horário: {{ sensorData.timestamp }}</p>
-</div>
-<div *ngIf="!sensorData">
-  <p>Aguardando dados do sensor...</p>
-</div>
+<nb-card>
+  <nb-card-body>
+        <ng-template #labelOne>First step</ng-template>
+        <h4>Parametros de Temperatura de Fluidos</h4>
+        <p class="lorem">
+        </p>
+        <section class="card-type">
+          <div class="tab-content active" id="parametros-basicos">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card__content">
+                      <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/temperature.png" alt="temperature"/>
+                        <h3>Temperatura Entrada Fluido 1</h3>
+                        <input type="number" id="temperaturaFluido" placeholder="°C" step="0.1" nbInput>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                      <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/temperature.png" alt="temperature"/>
+                        <h3>Temperatura Entrada Fluido 2</h3>
+                        <input type="number" id="temperaturaFluido1" placeholder="Temperatura" step="0.1" min="0" nbInput>
+                            <select id="unidadeTemperaturaFluido1">
+                                <option value="C">°C</option>
+                                <option value="K">K</option>
+                                <option value="F">°F</option>
+                            </select>   
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/piping.png" alt="piping"/>
+                        <h3>Vazão Fluido 1</h3>
+                        <input type="number" id="perdaCargaSuccao" placeholder="L/s" step="0.1" min="0" nbInput>
+                    </div>
+                </div>
+                <div class="card">
+                  <div class="card__content">
+                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/piping.png" alt="piping"/>
+                      <h3>Vazão Fluido 2</h3>
+                      <input type="number" id="perdaCargaSuccao" placeholder="L/s" step="0.1" min="0" nbInput>
+                  </div>
+              </div>
+              <div class="card">
+                <div class="card__content">
+                  <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/information.png" alt="information"/>
+                    <h3>Caracteristica Do Material</h3>
+                    <input type="string" id="perdaCargaSuccao" placeholder="Type"nbInput>
+                </div>
+            </div>
+            </div>
+        </div>
+                                        <!--PART-2-->
+        <h4>Área De Contato</h4>
+        <div class="tab-content active" id="parametros-basicos">
+          <div class="dashboard">
+              <div class="card">
+                  <div class="card__content">
+                    <img width="48" height="48" src="https://img.icons8.com/ink/48/radius.png" alt="radius"/>
+                      <h3>Raio do Tubo</h3>
+                      <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
+                  </div>
+              </div>
+              <div class="card">
+                <div class="card__content">
+                  <img width="48" height="48" src="https://img.icons8.com/ink/48/length.png" alt="length"/>
+                    <h3>Comprimento do Tubo</h3>
+                    <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
+                </div>
+            </div>
+            <div class="card">
+              <div class="card__content">
+                <img width="48" height="48" src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/48/external-stack-overflow-is-a-question-and-answer-site-for-professional-logo-regular-tal-revivo.png" alt="external-stack-overflow-is-a-question-and-answer-site-for-professional-logo-regular-tal-revivo"/>
+                  <h3>Quantidade de Tubos</h3>
+                  <input type="number" id="perdaCargaSuccao" placeholder=""nbInput>
+              </div>
+          </div>
+          </div>
+      </div>
+                                         <!--PART-3-->
+      <h4>Step content #1</h4>
+        <p class="lorem">
+          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+          gravida vizzle, dang.
+        </p>
+
+        </section>
+        <section class="button-next-prev">
+        <button nbButton>Submit</button>
+      </section>
+    
+ <!---------------------------------------------------LABEL-TWO-------------------------------------->
+        
+  </nb-card-body>
+</nb-card>
+

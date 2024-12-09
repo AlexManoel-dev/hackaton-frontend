@@ -1,1 +1,88 @@
-<p>pressure-loss works!</p>
+<nb-card>
+    <nb-card-body>
+          <ng-template #labelOne>First step</ng-template>
+          <h4>Parametros de Altura</h4>
+          <p class="lorem">
+
+          </p>
+          <section class="card-type">
+            <div class="tab-content active" id="parametros-basicos">
+              <div class="dashboard">
+                  <div class="card">
+                      <div class="card__content">
+                          <i class="fas fa-arrows-alt-v"></i>
+                          <h3>Altura Geométrica</h3>
+                          <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="card__content">
+                          <i class="fas fa-arrow-up"></i>
+                          <h3>Altura de Sucção</h3>
+                          <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
+                      </div>
+                  </div>
+              </div>
+          </div>
+                                          <!--PART-2-->
+          <h4>Parametros de Perda</h4>
+          <div class="tab-content active" id="parametros-basicos">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card__content">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <h3>Perda de Carga na Sucção</h3>
+                        <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Perda de Carga na Bomba</h3>
+                        <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                           <!--PART-3-->
+        <h4>Step content #1</h4>
+          <p class="lorem">
+            Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+            Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+            gravida vizzle, dang.
+          </p>
+          <div class="tab-content active" id="parametros-basicos">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card__content">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>Temperatura Média do Fluído</h3>
+                        <input type="number" id="temperaturaFluido" placeholder="°C" step="0.1" nbInput>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <i class="fas fa-flask"></i>
+                        <h3>Densidade do Fluído</h3>
+                        <input type="number" id="densidadeFluido" placeholder="kg/m³" step="0.1" min="0" nbInput>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <i class="fas fa-tint"></i>
+                        <h3>Pressão do Fluído na Captação</h3>
+                        <input type="number" id="pressaoFluido" placeholder="Pa" step="0.1" min="0" nbInput>
+                    </div>
+                </div>
+            </div>
+        </div>
+          </section>
+          <section class="button-next-prev">
+          <button nbButton>Submit</button>
+        </section>
+      
+   <!---------------------------------------------------LABEL-TWO-------------------------------------->
+          
+    </nb-card-body>
+  </nb-card>
+  

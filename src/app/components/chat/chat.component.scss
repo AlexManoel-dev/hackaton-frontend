@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 16px;
   right: 16px;
-  background-color: #007bff;
+  background-color: #5da4d4fd;
   color: white;
   border: none;
   border-radius: 50%;
@@ -41,3 +41,25 @@
     transform: translateY(0);
   }
 }
+
+::ng-deep nb-chat .header {
+  background-color: #5da4d4fd !important;
+  color: white !important;
+}
+
+::ng-deep nb-chat-message[reply] .message {
+  background-color: #5da4d4fd !important;
+  color: white !important;
+}
+
+::ng-deep nb-chat-message:not([reply]) .message {
+  background-color: #e8f4fc !important;
+  color: #333 !important;
+}
+
+::ng-deep nb-chat-form button {
+  background-color: #5da4d4fd !important;
+  color: white !important;
+  border: none !important;
+}
+
