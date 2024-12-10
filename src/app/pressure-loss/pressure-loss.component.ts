@@ -1,15 +1,33 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbCardModule, NbButtonModule } from '@nebular/theme';
+import { EChartsCoreOption } from 'echarts/core';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
   selector: 'app-pressure-loss',
   standalone: true,
-  imports: [NbCardModule, NbButtonModule],
+  imports: [NbCardModule, NbButtonModule, NgxEchartsDirective],
   templateUrl: './pressure-loss.component.html',
   styleUrls: ['./pressure-loss.component.scss'],
 })
 export class PressureLossComponent {
+  chartOption: EChartsCoreOption = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+      },
+    ],
+  };
+
   gridSize = 10; // Tamanho da matriz (10x10)
   grid: Array<Array<any>> = Array.from({ length: this.gridSize }, () =>
     Array(this.gridSize).fill(null)
