@@ -19,7 +19,6 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Adiciona uma mensagem inicial
-    this.messages.push({ text: 'Olá, como posso ajudá-lo?', reply: false });
 
     // Conectar ao WebSocket
     this.socket = io('http://localhost:3000/pump-selector', {
@@ -53,6 +52,11 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.socket.on('disconnect', () => {
       console.log('Desconectado do servidor WebSocket');
     });
+
+    const messageText = localStorage.getItem('adviceData');
+
+    // Envia a mensagem para o backend
+    this.socket?.emit('chat', messageText);
   }
 
   ngOnDestroy() {

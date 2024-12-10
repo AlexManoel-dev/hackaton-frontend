@@ -1,7 +1,4 @@
 .chat-button {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
   background-color: #5da4d4fd;
   color: white;
   border: none;
@@ -18,10 +15,7 @@
 }
 
 .chat-container {
-  position: fixed;
-  bottom: 80px;
-  right: 16px;
-  width: 500px;
+  width: 700px;
   height: 600px;
   max-height: 600px;
   z-index: 1000;
