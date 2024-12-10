@@ -1,4 +1,5 @@
-<nb-card *ngIf="isChatOpen" class="chat-container">
+<!-- <nb-card *ngIf="isChatOpen" class="chat-container"> -->
+<nb-card class="chat-container">
   <nb-chat title="Suporte" (send)="sendMessage($event)">
     <nb-chat-message class="chat-style"
       *ngFor="let msg of messages" 
@@ -6,11 +7,13 @@
       [reply]="msg.reply">
     </nb-chat-message>
 
-    <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+    <div class="loader"></div>
+
+    <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true" [class.disabled]="isTyping">
     </nb-chat-form>
   </nb-chat>
 </nb-card>
 
-<button class="chat-button" (click)="toggleChat()">
+<!-- <button class="chat-button" (click)="toggleChat()">
   💬
-</button>
+</button> -->

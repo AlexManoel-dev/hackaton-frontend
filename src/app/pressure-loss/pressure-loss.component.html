@@ -1,88 +1,64 @@
-<nb-card>
+<!-- <nb-card>
     <nb-card-body>
-          <ng-template #labelOne>First step</ng-template>
-          <h4>Parametros de Altura</h4>
-          <p class="lorem">
-
-          </p>
-          <section class="card-type">
-            <div class="tab-content active" id="parametros-basicos">
-              <div class="dashboard">
-                  <div class="card">
-                      <div class="card__content">
-                          <i class="fas fa-arrows-alt-v"></i>
-                          <h3>Altura Geométrica</h3>
-                          <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
-                      </div>
-                  </div>
-                  <div class="card">
-                      <div class="card__content">
-                          <i class="fas fa-arrow-up"></i>
-                          <h3>Altura de Sucção</h3>
-                          <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
-                      </div>
-                  </div>
-              </div>
-          </div>
-                                          <!--PART-2-->
-          <h4>Parametros de Perda</h4>
-          <div class="tab-content active" id="parametros-basicos">
-            <div class="dashboard">
-                <div class="card">
-                    <div class="card__content">
-                        <i class="fas fa-compress-arrows-alt"></i>
-                        <h3>Perda de Carga na Sucção</h3>
-                        <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Perda de Carga na Bomba</h3>
-                        <input type="number" id="perdaCargaSuccao" placeholder="m" step="0.1" min="0" nbInput>
-                    </div>
-                </div>
+      <h3>Adicionar e Remover Pipes</h3>
+      <div>
+        <button nbButton (click)="addPipe('straight')">Adicionar Pipe Reto</button>
+        <button nbButton (click)="addPipe('curve')">Adicionar Pipe Curvo</button>
+      </div>
+      <div style="margin: 10px 0;">
+        <span>Coordenadas Selecionadas: ({{ selectedX }}, {{ selectedY }})</span>
+      </div>
+  
+      <div style="display: grid; grid-template-columns: repeat(10, 50px); gap: 2px;">
+        @for (let y = 0; y < gridSize; y++) {
+          @for (let x = 0; x < gridSize; x++) {
+            <div
+              (click)="setSelectedCoordinates(x, y)"
+              [style.border]="selectedX === x && selectedY === y ? '2px solid red' : '1px solid black'"
+              style="width: 50px; height: 50px; background-color: lightgray; cursor: pointer; position: relative;"
+            >
+              @if (grid[y][x]) {
+                <div
+                  [style.backgroundColor]="grid[y][x].type === 'straight' ? 'blue' : 'green'"
+                  style="width: 100%; height: 100%;"
+                ></div>
+                <button
+                  (click)="removePipe(x, y)"
+                  style="position: absolute; top: 0; right: 0; font-size: 10px;"
+                >
+                  ✖
+                </button>
+              }
             </div>
-        </div>
-                                           <!--PART-3-->
-        <h4>Step content #1</h4>
-          <p class="lorem">
-            Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-            Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-            gravida vizzle, dang.
-          </p>
-          <div class="tab-content active" id="parametros-basicos">
-            <div class="dashboard">
-                <div class="card">
-                    <div class="card__content">
-                        <i class="fas fa-thermometer-half"></i>
-                        <h3>Temperatura Média do Fluído</h3>
-                        <input type="number" id="temperaturaFluido" placeholder="°C" step="0.1" nbInput>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                        <i class="fas fa-flask"></i>
-                        <h3>Densidade do Fluído</h3>
-                        <input type="number" id="densidadeFluido" placeholder="kg/m³" step="0.1" min="0" nbInput>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                        <i class="fas fa-tint"></i>
-                        <h3>Pressão do Fluído na Captação</h3>
-                        <input type="number" id="pressaoFluido" placeholder="Pa" step="0.1" min="0" nbInput>
-                    </div>
-                </div>
-            </div>
-        </div>
-          </section>
-          <section class="button-next-prev">
-          <button nbButton>Submit</button>
-        </section>
-      
-   <!---------------------------------------------------LABEL-TWO-------------------------------------->
-          
+          }
+        }
+      </div>
+  
+      <h3>Visualização dos Pipes</h3>
+      <svg width="500" height="500" style="border: 1px solid black;">
+        @for (let pipe of pipes) {
+          @if (pipe.type === 'straight') {
+            <rect
+              [attr.x]="pipe.position.x * 50"
+              [attr.y]="pipe.position.y * 50"
+              [attr.width]="50"
+              [attr.height]="10"
+              [attr.transform]="'rotate(' + pipe.angle + ' ' + (pipe.position.x * 50 + 25) + ' ' + (pipe.position.y * 50 + 5) + ')'"
+              fill="blue"
+            ></rect>
+          }
+          @if (pipe.type === 'curve') {
+            <circle
+              [attr.cx]="pipe.position.x * 50 + 25"
+              [attr.cy]="pipe.position.y * 50 + 25"
+              [attr.r]="20"
+              fill="green"
+            ></circle>
+          }
+        }
+      </svg>
     </nb-card-body>
   </nb-card>
-  
+   -->
+
+   <div echarts [options]="chartOption" style="width: 600px;height:400px;"></div>
