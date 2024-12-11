@@ -72,7 +72,7 @@ export class PumpSelectorComponent implements OnInit {
   consult(): void {
     localStorage.setItem('adviceData', `
           Gostaria que me fornecesse uma recomendação de uma bomba/pump.
-          Vou fornecer a altura manométrica em metros sendo ela ${this.form.get('geometricHeight')?.value}, altura de sucção em metros sendo ela ${this.form.get('suctionHeight')?.value}, perda de carga no trajeto de sucção em metros sendo ela ${this.form.get('suctionPressureLoss')?.value}, perda de carga de bomba em metros sendo ela ${this.form.get('pressureLossInThePump')?.value}, a pressão de vapor do fluído sendo ela ${this.vaporPressure}, a densidade do fluído em km/m³ sendo ela ${this.fluid.densidade} e a pressão do fluído na captação em Pascals sendo ela ${this.form.get('fluidPressureInCapture')?.value}.
+          Vou fornecer a altura manométrica em metros sendo ela ${this.form.get('geometricHeight')?.value}, altura de sucção em metros sendo ela ${this.form.get('suctionHeight')?.value}, perda de carga no trajeto de sucção em metros sendo ela ${this.form.get('suctionPressureLoss')?.value}, perda de carga de bomba em metros sendo ela ${this.form.get('pressureLossInThePump')?.value}, a pressão de vapor do fluído sendo ela ${this.vaporPressure}, a densidade do fluído em km/m³ sendo ela ${this.fluid.density} e a pressão do fluído na captação em Pascals sendo ela ${this.form.get('fluidPressureInCapture')?.value}.
           Através destes dados, calcule o NPSH disponível/available, e me mostre qual a melhor bomba recomendada para estes valores. Não me mostre os cálculos, mas apenas a conclusão de forma sucinta.
         `);
       this.router.navigate(['/advice']);
