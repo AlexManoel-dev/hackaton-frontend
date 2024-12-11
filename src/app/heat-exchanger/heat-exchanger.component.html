@@ -10,23 +10,38 @@
                 <div class="card">
                     <div class="card__content">
                       <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/temperature.png" alt="temperature"/>
-                        <h3>Temperatura Entrada Fluido 1</h3>
-                        <input type="number" id="temperaturaFluido" placeholder="°C" step="0.1" nbInput>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                      <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/temperature.png" alt="temperature"/>
-                        <h3>Temperatura Entrada Fluido 2</h3>
+                        <h3>Temperatura Entrada Fluido 1</h3>                       
                         <input type="number" id="temperaturaFluido1" placeholder="Temperatura" step="0.1" min="0" nbInput>
+<<<<<<< Updated upstream
                         <nb-select placeholder="Select Showcase">
                           <nb-option value="">Option empty</nb-option>
                           <nb-option value="C">°C</nb-option>
                           <nb-option value="K">K</nb-option>
                           <nb-option value="F">°F</nb-option>
                         </nb-select>
+=======
+                            <select id="unidadeTemperaturaFluido1">
+                                <option value="C">°C</option>
+                                <option value="K">K</option>
+                                <option value="F">°F</option>
+                                   </select>
+>>>>>>> Stashed changes
                     </div>
                 </div>
+                <div class="card">
+                  <div class="card__content">
+                    <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/temperature.png" alt="temperature"/>
+                    <h3>Temperatura Entrada Fluido 2</h3>
+                    <div class="container">
+                      <nb-select class="" placeholder="Select Showcase">           
+                        <nb-option value="">C</nb-option>
+                        <nb-option value="1">F</nb-option>
+                        <nb-option value="2">K</nb-option>
+                      </nb-select>
+                      <input type="number" placeholder="Temperatura" step="0.1" min="0" nbInput>
+                    </div>
+                  </div>
+                </div>             
                 <div class="card">
                     <div class="card__content">
                         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/piping.png" alt="piping"/>
@@ -84,7 +99,6 @@
           Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
           gravida vizzle, dang.
         </p>
-
         </section>
         <section class="button-next-prev">
         <button nbButton>Submit</button>
