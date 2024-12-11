@@ -51,16 +51,23 @@
             <div class="dashboard">
                 <div class="card">
                     <div class="card__content">
-                        <i class="fas fa-thermometer-half"></i>
-                        <h3>Temperatura Média do Fluído</h3>
-                        <input type="number" id="temperaturaFluido" placeholder="°C" step="0.1" nbInput formControlName="averageFluidTemperature" required>
+                        <i class="fas fa-flask"></i>
+                        <h3>Fluido</h3>
+                        <nb-select placeholder="Selecione o fluido" formControlName="fluid">
+                            @for (coefficient of coefficients; track $index) {
+                                <nb-option [value]="coefficient.id">{{ coefficient.compound_name }}</nb-option>
+                            }
+                        </nb-select>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card__content">
-                        <i class="fas fa-flask"></i>
-                        <h3>Densidade do Fluído</h3>
-                        <input type="number" id="densidadeFluido" placeholder="kg/m³" step="0.1" min="0" nbInput formControlName="fluidDensity" required>
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>Temperatura Média do Fluído</h3>
+                        <input type="number" id="temperaturaFluido" placeholder="°C" step="0.1" nbInput formControlName="averageFluidTemperature" required>
+                        <div *ngIf="form.get('averageFluidTemperature')?.errors?.['customError']" style="margin-top: 10px; color: red;">
+                            {{ form.get('averageFluidTemperature')?.errors?.['customError'] }}
+                          </div>
                     </div>
                 </div>
                 <div class="card">

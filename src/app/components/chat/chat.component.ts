@@ -63,6 +63,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     if (this.socket) {
       this.socket.disconnect();
     }
+
+    localStorage.removeItem('adviceData');
   }
 
   toggleChat() {
