@@ -4,10 +4,10 @@ import { NbThemeModule, NbLayoutModule, NbStepperModule } from '@nebular/theme'
 import { ChatComponent } from './components/chat/chat.component';
 import * as echarts from 'echarts/core';
 import { BarChart, LineChart } from 'echarts/charts';
-import { GridComponent } from 'echarts/components';
+import { GridComponent, LegendComponent, TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import { provideEchartsCore } from 'ngx-echarts';
-echarts.use([BarChart, LineChart, GridComponent, CanvasRenderer]);
+echarts.use([BarChart, LineChart, GridComponent, CanvasRenderer, LegendComponent, TooltipComponent]);
 
 @Component({
   selector: 'app-root',

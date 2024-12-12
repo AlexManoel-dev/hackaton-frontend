@@ -1,71 +1,109 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbCardModule, NbButtonModule } from '@nebular/theme';
 import { EChartsCoreOption } from 'echarts/core';
 import { NgxEchartsDirective } from 'ngx-echarts';
+import { FormsModule } from '@angular/forms';
+
+interface GridCell {
+  type: number;
+  isStart: boolean;
+  isEnd: boolean;
+  rotation: number;
+}
 
 @Component({
   selector: 'app-pressure-loss',
   standalone: true,
-  imports: [NbCardModule, NbButtonModule, NgxEchartsDirective],
+  imports: [NbCardModule, NbButtonModule, FormsModule],
   templateUrl: './pressure-loss.component.html',
   styleUrls: ['./pressure-loss.component.scss'],
 })
 export class PressureLossComponent {
-  chartOption: EChartsCoreOption = {
-    xAxis: {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    },
-    yAxis: {
-      type: 'value',
-    },
-    series: [
-      {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'line',
-      },
-    ],
-  };
+  rows = 10;
+  cols = 15;
+  grid: any[] = [];
 
-  gridSize = 10; // Tamanho da matriz (10x10)
-  grid: Array<Array<any>> = Array.from({ length: this.gridSize }, () =>
-    Array(this.gridSize).fill(null)
-  );
+  selectedRow: number | null = null;
+  selectedCol: number | null = null;
 
-  pipes: Array<any> = [];
+  types = ['Junção 90º', 'Junção T', 'Valvula Aberta', 'Valvula 1/2', 'Reto Horizontal'];
+  materials = ['Cobre', 'Ferro', 'Aço'];
 
-  selectedX = 0; // Coordenada X selecionada
-  selectedY = 0; // Coordenada Y selecionada
+  selectedType = '';
+  selectedMaterial = '';
+  length = '';
 
-  addPipe(type: 'straight' | 'curve') {
-    const pipe = {
-      id: this.pipes.length + 1,
-      type,
-      angle: 0,
-      position: { x: this.selectedX, y: this.selectedY },
-    };
+  ngOnInit() {
+    this.initializeGrid();
+  }
 
-    if (!this.grid[this.selectedY][this.selectedX]) {
-      this.pipes.push(pipe);
-      this.grid[this.selectedY][this.selectedX] = pipe;
-    } else {
-      alert('Já existe um pipe nessa posição!');
+  initializeGrid() {
+    this.grid = Array.from({ length: this.rows }, (_, rowIndex) =>
+      Array.from({ length: this.cols }, (_, colIndex) => ({
+        rowIndex,
+        colIndex,
+        isStart: false,
+        isEnd: false,
+        image: null,
+        length: null
+      }))
+    ).flat();
+  }
+
+  selectCell(row: number, col: number) {
+    this.selectedRow = this.selectedRow === row && this.selectedCol === col ? null : row;
+    this.selectedCol = this.selectedRow !== null ? col : null;
+  }
+
+  isSelected(row: number, col: number) {
+    return this.selectedRow === row && this.selectedCol === col;
+  }
+
+  moveUp() {
+    if (this.selectedRow !== null && this.selectedRow > 0) this.selectedRow--;
+  }
+
+  moveDown() {
+    if (this.selectedRow !== null && this.selectedRow < this.rows - 1) this.selectedRow++;
+  }
+
+  moveLeft() {
+    if (this.selectedCol !== null && this.selectedCol > 0) this.selectedCol--;
+  }
+
+  moveRight() {
+    if (this.selectedCol !== null && this.selectedCol < this.cols - 1) this.selectedCol++;
+  }
+
+  rotateElement() {
+    // Lógica de rotação a ser adicionada
+  }
+
+  defineStart() {
+    if (this.selectedRow !== null && this.selectedCol !== null) {
+      this.grid.forEach(cell => (cell.isStart = false));
+      this.grid[this.selectedRow * this.cols + this.selectedCol].isStart = true;
     }
   }
 
-  removePipe(x: number, y: number) {
-    const index = this.pipes.findIndex(
-      (pipe) => pipe.position.x === x && pipe.position.y === y
-    );
-    if (index >= 0) {
-      this.pipes.splice(index, 1);
-      this.grid[y][x] = null;
+  defineEnd() {
+    if (this.selectedRow !== null && this.selectedCol !== null) {
+      this.grid.forEach(cell => (cell.isEnd = false));
+      this.grid[this.selectedRow * this.cols + this.selectedCol].isEnd = true;
     }
   }
 
-  setSelectedCoordinates(x: number, y: number) {
-    this.selectedX = x;
-    this.selectedY = y;
+  addElement() {
+    if (this.selectedRow !== null && this.selectedCol !== null) {
+      const index = this.selectedRow * this.cols + this.selectedCol;
+      this.grid[index].image = this.getImagePath(this.selectedType, this.selectedMaterial) as any;
+      this.grid[index].length = this.length as any;
+    }
   }
+
+  private getImagePath(type: string, material: string): string {
+    // Retorna o caminho da imagem com base nos tipos e materiais
+    return ''; // Implementar lógica
+  }  
 }
